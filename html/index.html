@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Configuración del color de la barra del navegador -->
+   <!-- Configuración Exhaustiva de Color de Interfaz de Navegador -->
+    <!-- Chrome, Firefox OS y Opera -->
+    <meta name="theme-color" content="#020617">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#020617">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+<link rel="shortcut icon" href="favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+     <!-- SEO GLOBAL DE ALTO IMPACTO: NO-CODE + EXPORTACIÓN PROFESIONAL -->
+    <title>DOBEHA Builder - Constructor No-Code de Apps Nativas multiplataforma | Exportación a Flutter & React Native</title>
+    <meta name="description" content="La plataforma No-Code definitiva para crear apps nativas mediante arrastrar y soltar. Diseña visualmente y exporta código profesional en Flutter (Dart) y React Native. Ingeniería de software sin límites para el mercado global.">
+    <meta name="keywords" content="Constructor de apps sin código, no-code drag and drop, crear app nativa con IA, exportar código Flutter Dart, exportar React Native, desarrollo mobile profesional, DOBEHA Systems, propiedad de código">
+    <meta name="author" content="DOBEHA Systems">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dobeha-builder.com/">
+
+    <!-- OPEN GRAPH: ENFOQUE EN CONSTRUCCIÓN VISUAL Y CÓDIGO -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dobeha-builder.com/">
+    <meta property="og:title" content="DOBEHA: El Poder del No-Code sin limites y mas facil">
+    <meta property="og:description" content="Diseña tu app con arrastrar y soltar. Obtén el código fuente en Flutter o React Native. Sin suscripciones obligatorias, tu código es tuyo.">
+    <meta property="og:image" content="https://dobeha-builder.com/assets/no-code-engineering.jpg">
+    <meta property="og:site_name" content="DOBEHA Builder">
+
+    <!-- ESTRUCTURA DE DATOS SCHEMA.ORG (SEO TÉCNICO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "DOBEHA Builder",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "iOS, Android, Windows, macOS",
+      "description": "Plataforma No-Code profesional con interfaz drag-and-drop y exportación de código fuente nativo.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    }
+    </script>
+    <!-- Tailwind & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        dark: '#020617',
+                        primary: {
+                            DEFAULT: '#10b981', // Emerald 500
+                            hover: '#059669',
+                            glow: 'rgba(16, 185, 129, 0.15)',
+                        },
+                        secondary: '#38bdf8', // Sky 400
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #020617;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* Modern Grid Background */
+        .bg-grid {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 32px 32px;
+        }
+
+        .glow-effect {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, rgba(2, 6, 23, 0) 70%);
+            z-index: -1;
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(16, 185, 129, 0.3);
+            background: rgba(15, 23, 42, 0.8);
+            transform: translateY(-5px);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #38bdf8 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+            transform: scale(1.02);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float { animation: float 5s ease-in-out infinite; }
+
+        .platform-icon {
+            filter: grayscale(1) opacity(0.5);
+            transition: all 0.3s ease;
+        }
+        .platform-icon:hover {
+            filter: grayscale(0) opacity(1);
+            transform: scale(1.1);
+        }
+
+        /* Intense blur for featured sections */
+        .section-blur {
+            backdrop-filter: blur(80px) saturate(200%);
+            background: rgba(15, 23, 42, 0.4);
+        }
+
+        /* Energy Ray Animation - Full Totality */
+        @keyframes ray-rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); opacity: 0.1; }
+            50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.8); opacity: 0.4; }
+            100% { transform: translate(-50%, -50%) rotate(360deg) scale(1); opacity: 0.1; }
+        }
+
+        @keyframes lightning-burst {
+            0%, 100% { opacity: 0; }
+            92% { opacity: 0; }
+            93% { opacity: 0.5; background-color: rgba(16, 185, 129, 0.1); }
+            94% { opacity: 0.1; }
+            95% { opacity: 0.7; background-color: rgba(56, 189, 248, 0.1); }
+            96% { opacity: 0; }
+        }
+
+        .energy-ray-full {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300vw;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.5), transparent);
+            transform-origin: center center;
+            filter: blur(10px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Drag animation for illustration */
+        @keyframes drag {
+            0% { transform: translate(0, 0); opacity: 0; }
+            20% { opacity: 1; }
+            80% { transform: translate(60px, -40px); opacity: 1; }
+            100% { transform: translate(60px, -40px); opacity: 0; }
+        }
+        .drag-anim { animation: drag 4s infinite; }
+
+        /* Shine animation for IA Button */
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        .btn-ia {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+        }
+        .btn-ia::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-20deg);
+            animation: shine 3s infinite;
+        }
+    </style>
+</head>
+<body class="bg-grid">
+
+    <!-- Navigation -->
+    <header class="fixed w-full z-50 border-b border-white/5 bg-dark/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-primary flex items-center justify-center rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                    <img href"favicon/favicon.ico"></img>
+                </div>
+                <span class="text-2xl font-extrabold tracking-tighter uppercase">Dobeha<span class="text-primary">.</span></span>
+            </div>
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+                <a href="#features" class="hover:text-primary transition-colors">Plataforma</a>
+                <a href="#visual-builder" class="hover:text-primary transition-colors">Visual</a>
+                <a href="#engine" class="hover:text-primary transition-colors">Por qué DOBEHA</a>
+                <a href="#export" class="hover:text-primary transition-colors">Código Real</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#" class="hidden sm:block text-sm font-semibold hover:text-primary transition-colors">Login</a>
+                <a href="#signup" class="btn-primary px-6 py-2.5 rounded-full text-sm font-bold text-dark">
+                    EMPIEZA Gratis
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-16 overflow-hidden">
+            <div class="glow-effect top-20 left-1/4"></div>
+            <div class="glow-effect bottom-20 right-1/4"></div>
+
+            <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-8">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                    V-1.0 DISPONIBLE EN JUNIO 2O26
+                </div>
+
+                <h1 class="text-5xl lg:text-7xl font-extrabold leading-[1.1] mb-6">
+                    Diseña con <span class="text-gradient">Visión</span>,<br/>
+                    Escala con <span class="text-primary">Código Real</span>.
+                </h1>
+                
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Crea aplicaciones nativas para <span class="text-white font-semibold">iOS, Android y Windows</span> sin escribir código, pero con la libertad de exportarlo cuando quieras. Sin vendor lock-in.
+                </p>
+                
+       
+                
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button onclick="empezarProyectoPage()" class="btn-primary px-8 py-4 rounded-full font-bold text-dark flex items-center gap-2">
+                        Comenzar Proyecto <i class="fa-solid fa-bolt"></i>
+                    </button>
+                    <script defer>
+                        function empezarProyectoPage(){
+                            if(window.navegarAFlutter){
+                                window.navegarAFlutter();
+                            }else {console.log("flutter no disponible")}
+                        }
+                        </script>
+                    <a href="#downloads" class="px-8 py-4 rounded-full border border-white/10 hover:bg-white/5 transition font-semibold flex items-center gap-2">
+                        <i class="fa-solid fa-download"></i> Descargar Studio
+                    </a>
+                </div>
+                
+    <div class="flex justify-center gap-8 md:gap-16 items-center mt-16 opacity-70">
+                <i class="fa-brands fa-android text-2xl platform-icon" title="Android"></i>
+                <i class="fa-brands fa-apple text-2xl platform-icon" title="iOS & macOS"></i>
+                <i class="fa-brands fa-windows text-2xl platform-icon" title="Windows"></i>
+                <i class="fa-brands fa-linux text-2xl platform-icon" title="Linux"></i>
+            </div>
+</br>
+                        <!-- Actions Grid -->
+                        <div class="grid grid-cols-1 lg:grid-cols-2 " style='marging: 0; padding: 0;'>
+                            
+                            <!-- Opción 1: Convertir Web -->
+                            <div class="space-y-4">
+                               
+                             <!-- Visual Illustration Section (Arrastrar y Soltar) -->
+        <section id="visual-builder" class="py-12 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col items-center">
+                     </br></br>
+                    <!-- Illustration Container -->
+                    <div class="relative w-full max-w-md h-[550px] flex justify-center items-center mb-12">
+                        <div class="absolute w-80 h-80 bg-primary/20 blur-[100px] rounded-full"></div>
+                        
+                        <div class="relative z-10 w-72 h-[500px] bg-slate-900 border-[8px] border-slate-800 rounded-[3.5rem] shadow-2xl overflow-hidden ring-1 ring-white/10">
+                            <div class="h-6 w-32 bg-slate-800 mx-auto rounded-b-2xl mb-6 shadow-inner"></div>
+                            
+                            <div class="px-6 space-y-5">
+                                <div class="h-8 w-2/3 bg-slate-800/50 rounded-lg"></div>
+                                <div class="h-32 w-full border-2 border-dashed border-primary/50 bg-primary/5 rounded-2xl flex flex-col items-center justify-center gap-2">
+                                    <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                        <i class="fa-solid fa-plus animate-pulse"></i>
+                                    </div>
+                                    <span class="text-[10px] font-mono text-primary/70 tracking-widest uppercase">Soltar Widget Aquí</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div class="h-14 bg-slate-800/50 rounded-xl"></div>
+                                    <div class="h-14 bg-slate-800/50 rounded-xl"></div>
+                                </div>
+                                <div class="h-20 bg-slate-800/50 rounded-xl w-full"></div>
+                            </div>
+                        </div>
+
+                        <div class="absolute left-0 top-1/4 glass-card p-4 rounded-2xl border-primary/40 shadow-xl animate-float cursor-move z-20">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </div>
+                                <span class="text-xs font-bold text-white">Estadísticas</span>
+                            </div>
+                        </div>
+
+                        <div class="absolute right-0 top-1/2 glass-card p-4 rounded-2xl border-sky-400/40 shadow-xl cursor-move z-20 drag-anim">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-sky-400/20 rounded-lg flex items-center justify-center text-sky-400">
+                                    <i class="fa-solid fa-image"></i>
+                                </div>
+                                <span class="text-xs font-bold text-white">Galería HD</span>
+                            </div>
+                        </div>
+
+                        <div class="absolute left-10 bottom-20 glass-card p-4 rounded-2xl border-orange-400/40 shadow-xl animate-float delay-700 cursor-move z-20">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-orange-400/20 rounded-lg flex items-center justify-center text-orange-400">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <span class="text-xs font-bold text-white">Mapa Real</span>
+                            </div>
+                        </div>
+
+                        <div class="absolute right-20 top-1/2 mt-12 z-30 text-white text-4xl pointer-events-none opacity-80 drag-anim">
+                            <i class="fa-solid fa-hand-pointer drop-shadow-lg"></i>
+                        </div>
+                    </div>
+</br>
+
+
+                    <div class="text-center max-w-2xl">
+                        <p class="text-2xl md:text-4xl font-extrabold text-white leading-tight">
+                            Arrastra widgets con <span class="text-primary italic">fluidez absoluta</span> y construye interfaces que otros consideran imposibles.
+                        </p>
+                        <p class="mt-4 text-slate-500 font-medium">La simplicidad del dibujo unida a la potencia de la ingeniería nativa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+                            </div>
+
+                            <!-- Opción 2: Convertir Archivos -->
+                            <div>
+                            
+        <!-- Engine Section (Potencia Suprema) with FULL Background Animation -->
+        <section id="engine" class="py-32 relative overflow-hidden min-h-[800px] flex items-center">
+            
+            <!-- THE TOTALITY BACKGROUND: Animated Rays & Lightning -->
+            <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+                <div class="energy-ray-full" style="animation: ray-rotate 18s infinite linear;"></div>
+                <div class="energy-ray-full" style="animation: ray-rotate 12s infinite linear reverse; background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);"></div>
+                <div class="energy-ray-full" style="animation: ray-rotate 25s infinite linear; opacity: 0.15; transform: translate(-50%, -50%) rotate(75deg); height: 5px;"></div>
+                <div class="energy-ray-full" style="animation: ray-rotate 20s infinite linear reverse; transform: translate(-50%, -50%) rotate(-45deg); width: 400vw; background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.3), transparent);"></div>
+                <div class="absolute inset-0" style="animation: lightning-burst 6s infinite;"></div>
+                <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.15),transparent_70%)] opacity-50"></div>
+                <div class="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_20%,rgba(56,189,248,0.1),transparent_50%)]"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+                <!-- Glass Panel Content -->
+                <div class="section-blur p-12 md:p-20 rounded-[4rem] border border-white/10 shadow-[0_0_120px_rgba(16,185,129,0.2)] relative overflow-hidden">
+                    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/20 blur-[150px] rounded-full opacity-40"></div>
+                    
+                    <div class="text-center max-w-3xl mx-auto mb-20 relative z-10">
+                        <h2 class="text-2xl md:text-4xl font-extrabold mb-8 leading-tight tracking-tight">Potencia <span class="text-primary italic underline decoration-primary/20 underline-offset-8">Suprema</span>,<br/> Simplicidad <span class="text-sky-400">Absoluta</span>.</h2>
+                        <p class="text-slate-60 text-xl md:text-2xl leading-relaxed font-small">
+                            DOBEHA transmuta tus ideas en software nativo de alto rendimiento al instante, envuelto en una atmósfera eléctrica de pura ingeniería.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-16 relative z-10">
+                        <!-- Fast -->
+                        <div class="space-y-6 group">
+                            <div class="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center text-primary text-4xl group-hover:scale-110 group-hover:bg-primary/30 transition-all duration-500 shadow-xl shadow-primary/20 border border-primary/30">
+                                <i class="fa-solid fa-gauge-high"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white tracking-tight">Velocidad Extrema</h4>
+                          
+                        </div>
+                        <!-- Easy DB -->
+                        <div class="space-y-6 group">
+                            <div class="w-16 h-16 bg-sky-400/20 rounded-2xl flex items-center justify-center text-sky-400 text-4xl group-hover:scale-110 group-hover:bg-sky-400/30 transition-all duration-500 shadow-xl shadow-sky-400/20 border border-sky-400/30">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white tracking-tight">DB Auto-Generada</h4>
+                           
+                        </div>
+                        <!-- Drag & Drop -->
+                        <div class="space-y-6 group">
+                            <div class="w-16 h-16 bg-emerald-400/20 rounded-2xl flex items-center justify-center text-emerald-400 text-4xl group-hover:scale-110 group-hover:bg-emerald-400/30 transition-all duration-500 shadow-xl shadow-emerald-400/20 border border-emerald-400/30">
+                                <i class="fa-solid fa-hand-pointer"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white tracking-tight">Arrastra y Realiza</h4>
+                          
+                        </div>
+                    </div>
+
+                    <div class="mt-24 pt-12 border-t border-white/10 text-center relative z-10">
+                        <p class="text-xs font-mono text-primary/80 uppercase tracking-[0.5em] font-black">
+                            SISTEMA DE INGENIERÍA VISUAL INTEGRADO
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                            </div>
+
+                          
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Preview -->
+        <section class="max-w-6xl mx-auto px-6 py-24">
+            <div class="glass-card rounded-2xl border border-white/10 shadow-2xl overflow-hidden animate-float">
+                <div class="h-10 bg-slate-900 flex items-center px-4 gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                    <span class="ml-4 text-[10px] font-mono text-slate-500">dobeha_studio_v2.0 / checkout_flow.dart</span>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-8 border-r border-white/5 bg-[radial-gradient(#1e293b_1px,transparent_1px)] bg-[size:20px_20px]">
+                        <div class="space-y-4">
+                            <div class="w-full h-12 rounded-lg bg-slate-800 border-2 border-primary/40 flex items-center justify-center text-primary font-bold shadow-lg shadow-primary/10">
+                                <i class="fa-solid fa-credit-card mr-2"></i> Módulo de Pago
+                            </div>
+                            <div class="w-3/4 h-12 rounded-lg bg-slate-800 border border-white/10 mx-auto flex items-center justify-center text-slate-400">
+                                <i class="fa-solid fa-shield-halved mr-2"></i> Verificación 3DS
+                            </div>
+                            <div class="w-full h-12 rounded-lg bg-primary/20 border-2 border-primary border-dashed flex items-center justify-center text-primary text-xs font-mono">
+                                [ Soltar Componente IA aquí ]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 bg-slate-950 font-mono text-sm leading-relaxed overflow-x-auto">
+                        <div class="flex justify-between mb-4">
+                            <span class="text-primary text-[10px] border border-primary/30 px-2 py-0.5 rounded">AUTO-GENERATED CODE</span>
+                            <span class="text-slate-600 text-[10px]">FLUTTER / DART</span>
+                        </div>
+                        <p><span class="text-emerald-400">class</span> <span class="text-sky-300">PaymentHandler</span> {</p>
+                        <p class="pl-4 text-slate-500">// IA Optimized Logic</p>
+                        <p class="pl-4"><span class="text-purple-400">final</span> stripe = <span class="text-yellow-300">StripeService</span>();</p>
+                        <p class="pl-4 mt-2"><span class="text-emerald-400">Future</span>&lt;void&gt; execute() <span class="text-emerald-400">async</span> {</p>
+                        <p class="pl-8"><span class="text-purple-400">await</span> stripe.process(amount: <span class="text-orange-400">99.0</span>);</p>
+                        <p class="pl-4">}</p>
+                        <p>}</p>
+                    </div>
+                </div>
+            </div>
+            
+         
+        </section>
+
+        <!-- Bento Features -->
+        <section id="features" class="py-24 bg-dark/50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Todo lo que necesitas, <span class="text-primary">sin fricción</span>.</h2>
+                    <p class="text-slate-400">Construido por desarrolladores para mentes creativas.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-card p-8 rounded-3xl md:col-span-2">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary text-xl">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Lógica con IA Generativa</h3>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+                            No pierdas tiempo en estructuras repetitivas. Describe tu flujo de negocio en lenguaje natural y nuestra IA construirá los nodos de lógica por ti, optimizados y listos para producción.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300">FastAPI Support</span>
+                            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300">Flutter Logic</span>
+                            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300">Node.js Connect</span>
+                        </div>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-400 text-xl">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Database Pro</h3>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-4">Diseña modelos SQL complejos visualmente. Generamos el esquema y las miras automáticamente.</p>
+                        <div class="bg-dark/50 rounded-xl p-4 font-mono text-[10px] text-slate-500 border border-white/5">
+                            SELECT * FROM users <br/>WHERE active = true;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Export Focus -->
+        <section id="export" class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="glass-card p-12 rounded-[3rem] border-primary/20 bg-gradient-to-br from-primary/5 to-dark flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-1/2">
+                        <h2 class="text-4xl font-extrabold mb-6 leading-tight">Tu código es <span class="text-primary">TUYO</span>. Siempre.</h2>
+                        <p class="text-slate-400 mb-8">
+                            A diferencia de otras plataformas, DOBEHA genera código legible por humanos. Exporta un proyecto completo en Flutter o Python y llévatelo a cualquier editor como VS Code o Android Studio.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-primary"></i>
+                                <span class="text-sm font-semibold text-slate-200">Exportación en un clic (.zip o GitHub)</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-primary"></i>
+                                <span class="text-sm font-semibold text-slate-200">Código limpio y documentado</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-primary"></i>
+                                <span class="text-sm font-semibold text-slate-200">Sin costos por mantenimiento externos</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="lg:w-1/2 grid grid-cols-2 gap-4 w-full">
+                        <div class="p-6 rounded-2xl bg-white/5 border border-white/10 text-center">
+                            <i class="fa-brands fa-python text-4xl text-yellow-500 mb-4"></i>
+                            <p class="text-xs font-bold uppercase tracking-widest text-slate-500">Backend</p>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-white/5 border border-white/10 text-center">
+                            <i class="fa-solid fa-mobile-screen-button text-4xl text-sky-400 mb-4"></i>
+                            <p class="text-xs font-bold uppercase tracking-widest text-slate-500">Flutter</p>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-white/5 border border-white/10 text-center">
+                            <i class="fa-solid fa-cloud-arrow-down text-4xl text-primary mb-4"></i>
+                            <p class="text-xs font-bold uppercase tracking-widest text-slate-500">Deploy</p>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-white/5 border border-white/10 text-center">
+                            <i class="fa-solid fa-rocket text-4xl text-orange-500 mb-4"></i>
+                            <p class="text-xs font-bold uppercase tracking-widest text-slate-500">Performance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section id="pricing" class="py-24">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Un modelo justo.</h2>
+                <p class="text-slate-400 mb-12">Queremos que construyas, no que te preocupes por la factura.</p>
+                
+                <div class="glass-card p-1 bg-gradient-to-br from-primary/30 to-sky-500/30 rounded-[2.5rem] shadow-[0_0_50px_rgba(16,185,129,0.1)]">
+                    <div class="bg-dark rounded-[2.4rem] p-10 md:p-16">
+                        <span class="text-primary font-bold text-sm tracking-[0.2em] uppercase mb-4 block">Plan Creador</span>
+                        <div class="flex justify-center items-baseline gap-2 mb-8">
+                            <span class="text-6xl md:text-8xl font-extrabold text-white">0€</span>
+                            <span class="text-slate-500 font-semibold italic">/ para siempre</span>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6 text-left max-w-2xl mx-auto mb-12">
+                            <div class="flex items-center gap-3 text-slate-300">
+                                <i class="fa-solid fa-check text-primary"></i> Proyectos Ilimitados
+                            </div>
+                            <div class="flex items-center gap-3 text-slate-300">
+                                <i class="fa-solid fa-check text-primary"></i> Exportación Full de Código
+                            </div>
+                            <div class="flex items-center gap-3 text-slate-300">
+                                <i class="fa-solid fa-check text-primary"></i> Herramientas de IA (Beta)
+                            </div>
+                            <div class="flex items-center gap-3 text-slate-300">
+                                <i class="fa-solid fa-check text-primary"></i> Publicación en Web
+                            </div>
+                        </div>
+                        <a href="#signup" class="btn-primary inline-flex px-12 py-5 rounded-full text-dark font-extrabold text-lg shadow-xl">
+                            Empieza a Crear Gratis
+                        </a>
+                        <p class="mt-6 text-xs text-slate-500 italic">No requerimos tarjeta de crédito para empezar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-white/5 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 bg-primary flex items-center justify-center rounded-lg text-dark">
+                            <i class="fa-solid fa-code font-bold"></i>
+                        </div>
+                        <span class="text-xl font-bold uppercase tracking-tighter">Dobeha<span class="text-primary">.</span></span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed max-w-sm">
+                        La democratización del desarrollo de software. Crea, exporta y escala sin barreras técnicas ni económicas.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Plataforma</h4>
+                    <ul class="space-y-4 text-sm text-slate-500">
+                        <li><a href="#" class="hover:text-primary">Flutter Studio</a></li>
+                        <li><a href="#" class="hover:text-primary">IA Builder</a></li>
+                        <li><a href="#" class="hover:text-primary">Documentación</a></li>
+                        <li><a href="#" class="hover:text-primary">Changelog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Comunidad</h4>
+                    <ul class="space-y-4 text-sm text-slate-500">
+                        <li><a href="#" class="hover:text-primary">Discord</a></li>
+                        <li><a href="#" class="hover:text-primary">GitHub</a></li>
+                        <li><a href="#" class="hover:text-primary">Twitter</a></li>
+                        <li><a href="#" class="hover:text-primary">Showcase</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 text-xs text-slate-600">
+                <p>© 2024 DOBEHA Builder Inc. Hecho con <i class="fa-solid fa-heart text-red-500"></i> para creadores libres.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-slate-400 transition">Privacidad</a>
+                    <a href="#" class="hover:text-slate-400 transition">Términos</a>
+                    <a href="#" class="hover:text-slate-400 transition">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Ensure the DOM is fully loaded before trying to query elements
+        // Smooth scroll implementation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in effects
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card, .section-blur').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
